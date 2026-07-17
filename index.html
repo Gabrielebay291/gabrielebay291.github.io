@@ -3,497 +3,456 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Naseem Machlovi — Trustworthy & Agentic AI Researcher</title>
-  <meta name="description" content="Naseem Machlovi — Ph.D. researcher at Fordham University working on Trustworthy Machine Learning, AI Safety, and Agentic AI for healthcare and LLM moderation." />
+  <title>Naseem Machlovi</title>
+  <meta name="description" content="Naseem Machlovi is a PhD researcher at Fordham University working on trustworthy machine learning, AI safety, and agentic AI for healthcare and LLM moderation." />
   <meta name="author" content="Naseem Machlovi" />
-
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Naseem Machlovi — Trustworthy & Agentic AI Researcher" />
-  <meta property="og:description" content="Ph.D. researcher at Fordham University: Trustworthy ML, AI Safety, and Agentic AI for healthcare and LLM moderation." />
+  <meta property="og:title" content="Naseem Machlovi" />
+  <meta property="og:description" content="PhD researcher at Fordham University: trustworthy ML, AI safety, and agentic AI." />
   <meta property="og:url" content="https://machlovi.github.io" />
-
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='88'>📄</text></svg>" />
 
   <style>
+    /* ---------- Warm, scholarly palette. One accent (clay). ---------- */
     :root {
-      --bg: #f7f8fb;
-      --bg-elev: #ffffff;
-      --bg-soft: #eef1f7;
-      --text: #12151c;
-      --text-soft: #4b5568;
-      --text-mute: #6b7488;
-      --border: #e2e6ee;
-      --accent: #4f46e5;
-      --accent-2: #0ea5a4;
-      --accent-soft: rgba(79, 70, 229, 0.10);
-      --shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 8px 24px rgba(16, 24, 40, 0.06);
-      --shadow-lg: 0 12px 40px rgba(16, 24, 40, 0.12);
-      --radius: 16px;
+      --paper:      #fbf9f4;
+      --paper-card: #ffffff;
+      --ink:        #232028;
+      --ink-soft:   #55505c;
+      --ink-faint:  #857f8c;
+      --rule:       #e7e1d6;
+      --accent:     #b0472c;   /* terracotta / clay */
+      --accent-ink: #8f3821;
+      --accent-wash:#f4e9e2;
+      --tag-bg:     #f1ece2;
+      --tag-ink:    #6b5f4e;
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #0b0d12;
-        --bg-elev: #13161d;
-        --bg-soft: #171b24;
-        --text: #eef1f7;
-        --text-soft: #b7bfd0;
-        --text-mute: #8b93a7;
-        --border: #232836;
-        --accent: #8b83ff;
-        --accent-2: #2dd4bf;
-        --accent-soft: rgba(139, 131, 255, 0.12);
-        --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.45);
-        --shadow-lg: 0 16px 50px rgba(0,0,0,0.55);
+        --paper:      #16140f;
+        --paper-card: #1d1a15;
+        --ink:        #ece6da;
+        --ink-soft:   #b8b0a1;
+        --ink-faint:  #8a8272;
+        --rule:       #302b22;
+        --accent:     #e08a5f;
+        --accent-ink: #eda079;
+        --accent-wash:#2a2018;
+        --tag-bg:     #241f18;
+        --tag-ink:    #b7ac97;
       }
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.68;
       -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      overflow-x: hidden;
     }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+    .serif {
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 0 22px; }
 
-    /* ---------- Nav ---------- */
-    nav {
-      position: sticky; top: 0; z-index: 50;
-      backdrop-filter: saturate(160%) blur(12px);
-      background: color-mix(in srgb, var(--bg) 78%, transparent);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
-    .brand { font-weight: 700; letter-spacing: -0.02em; font-size: 1.02rem; }
-    .brand span { color: var(--accent); }
-    .nav-links { display: flex; gap: 22px; }
-    .nav-links a { color: var(--text-soft); font-size: 0.92rem; font-weight: 500; }
-    .nav-links a:hover { color: var(--text); text-decoration: none; }
-    @media (max-width: 640px) { .nav-links { display: none; } }
+    a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .12s ease, color .12s ease; }
+    a:hover { color: var(--accent-ink); border-bottom-color: currentColor; }
 
-    /* ---------- Hero ---------- */
-    header.hero {
-      position: relative;
-      padding: 88px 0 64px;
-      overflow: hidden;
-    }
-    .hero-glow {
-      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    /* ---------- Header / bio ---------- */
+    header { padding: 58px 0 30px; }
+    .masthead { display: flex; gap: 34px; align-items: flex-start; }
+    @media (max-width: 620px) { .masthead { flex-direction: column; gap: 22px; align-items: center; text-align: center; } }
+
+    .portrait {
+      flex: 0 0 auto;
+      width: 148px; height: 148px; border-radius: 50%;
+      object-fit: cover;
       background:
-        radial-gradient(600px 320px at 12% -10%, var(--accent-soft), transparent 70%),
-        radial-gradient(560px 300px at 92% 0%, rgba(14,165,164,0.12), transparent 72%);
-    }
-    .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; }
-    @media (max-width: 760px) { .hero-inner { grid-template-columns: 1fr; text-align: left; } }
-
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.02em;
+        radial-gradient(120% 120% at 30% 20%, var(--accent-wash), var(--paper-card));
+      border: 1px solid var(--rule);
+      display: grid; place-items: center;
+      font-size: 3rem; font-weight: 600; letter-spacing: .02em;
       color: var(--accent);
-      background: var(--accent-soft);
-      padding: 6px 12px; border-radius: 999px; margin-bottom: 18px;
+      box-shadow: 0 6px 22px rgba(80,50,30,0.10);
     }
-    .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-2) 25%, transparent); }
-    h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); line-height: 1.05; letter-spacing: -0.03em; font-weight: 800; }
-    .subtitle { font-size: clamp(1.05rem, 2.4vw, 1.3rem); color: var(--text-soft); margin-top: 14px; font-weight: 500; }
-    .subtitle strong { color: var(--text); font-weight: 700; }
-    .lede { margin-top: 20px; max-width: 60ch; color: var(--text-soft); font-size: 1.02rem; }
+    @media (prefers-color-scheme: dark) { .portrait { box-shadow: 0 6px 22px rgba(0,0,0,0.4); } }
 
-    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .bio h1 { margin: 2px 0 4px; font-size: 2.15rem; line-height: 1.1; font-weight: 600; letter-spacing: -0.01em; }
+    .role { color: var(--ink-soft); font-size: 1.05rem; margin: 0 0 2px; }
+    .role .place { color: var(--ink); }
+    .scholar-line { color: var(--ink-faint); font-size: 0.92rem; margin-top: 6px; }
+
+    .links { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 0.95rem; }
+    @media (max-width: 620px) { .links { justify-content: center; } }
+    .links a { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-soft); border-bottom: none; }
+    .links a:hover { color: var(--accent); }
+    .links a svg { width: 16px; height: 16px; opacity: .85; }
+    .links a.cv { color: var(--accent); font-weight: 600; }
+
+    /* ---------- Buttons ---------- */
     .btn {
       display: inline-flex; align-items: center; gap: 8px;
-      padding: 10px 18px; border-radius: 12px; font-weight: 600; font-size: 0.92rem;
-      border: 1px solid var(--border); background: var(--bg-elev); color: var(--text);
-      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+      padding: 9px 16px; border-radius: 8px; font-size: 0.93rem; font-weight: 600;
+      border: 1px solid transparent; background: var(--accent); color: #fff;
+      border-bottom: 1px solid transparent;
     }
-    .btn:hover { text-decoration: none; transform: translateY(-2px); box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--accent) 40%, var(--border)); }
-    .btn.primary { background: var(--accent); color: #fff; border-color: transparent; }
-    .btn.primary:hover { box-shadow: 0 10px 28px color-mix(in srgb, var(--accent) 45%, transparent); }
-    .btn svg { width: 17px; height: 17px; }
+    .btn:hover { color: #fff; background: var(--accent-ink); border-bottom-color: transparent; }
+    .btn svg { width: 16px; height: 16px; }
+    .btn.ghost { background: transparent; color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--rule)); }
+    .btn.ghost:hover { color: var(--accent-ink); background: var(--accent-wash); }
 
-    .avatar {
-      width: 168px; height: 168px; border-radius: 50%;
-      display: grid; place-items: center;
-      font-size: 3.6rem; font-weight: 800; color: #fff;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: var(--shadow-lg);
-      border: 4px solid var(--bg-elev);
-    }
-    @media (max-width: 760px) { .avatar { width: 108px; height: 108px; font-size: 2.4rem; } }
-
-    /* ---------- Metrics ---------- */
-    .metrics { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; position: relative; z-index: 1; }
-    .metric {
-      flex: 1 1 140px; min-width: 130px;
-      background: var(--bg-elev); border: 1px solid var(--border); border-radius: 14px;
-      padding: 16px 18px; box-shadow: var(--shadow);
-    }
-    .metric .num { font-size: 1.7rem; font-weight: 800; letter-spacing: -0.02em; }
-    .metric .num .plus { color: var(--accent); }
-    .metric .lbl { font-size: 0.82rem; color: var(--text-mute); margin-top: 2px; font-weight: 500; }
+    /* ---------- Experience ---------- */
+    .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+    .section-head h2 { margin-bottom: 0; }
+    .exp-list { display: grid; gap: 20px; margin-top: 18px; }
+    .exp { display: grid; grid-template-columns: 132px 1fr; gap: 20px; }
+    @media (max-width: 560px) { .exp { grid-template-columns: 1fr; gap: 3px; } }
+    .exp .span { color: var(--accent); font-weight: 650; font-variant-numeric: tabular-nums; font-size: 0.95rem; padding-top: 1px; }
+    .exp .role { color: var(--ink); font-weight: 650; margin: 0; font-size: 1rem; }
+    .exp .org { color: var(--ink-soft); font-size: 0.97rem; }
+    .exp .about { color: var(--ink-soft); font-size: 0.95rem; margin-top: 4px; }
 
     /* ---------- Sections ---------- */
-    section { padding: 60px 0; }
-    .section-head { margin-bottom: 34px; }
-    .kicker { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
-    h2 { font-size: clamp(1.5rem, 3.4vw, 2rem); letter-spacing: -0.02em; font-weight: 800; margin-top: 6px; }
-    .section-head p { color: var(--text-soft); margin-top: 8px; max-width: 66ch; }
+    section { padding: 26px 0; border-top: 1px solid var(--rule); }
+    section:first-of-type { border-top: none; }
+    h2 {
+      font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.14em;
+      color: var(--accent); font-weight: 700; margin: 0 0 18px;
+    }
+    p { margin: 0 0 14px; }
+    p:last-child { margin-bottom: 0; }
+    .lead { font-size: 1.06rem; }
 
-    /* ---------- Interest cards ---------- */
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
-    .card {
-      background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 24px; box-shadow: var(--shadow); transition: transform .15s ease, box-shadow .15s ease;
-    }
-    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-    .card .ico { font-size: 1.5rem; width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; background: var(--accent-soft); margin-bottom: 14px; }
-    .card h3 { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em; }
-    .card p { color: var(--text-soft); font-size: 0.93rem; margin-top: 6px; }
+    /* ---------- Interests (inline, no emoji tiles) ---------- */
+    .interests { display: grid; gap: 14px; }
+    .interest { display: grid; grid-template-columns: 210px 1fr; gap: 8px 24px; align-items: baseline; }
+    @media (max-width: 560px) { .interest { grid-template-columns: 1fr; gap: 2px; } }
+    .interest .name { font-weight: 650; color: var(--ink); }
+    .interest .desc { color: var(--ink-soft); }
 
-    /* ---------- Featured Agentic AI ---------- */
-    .feature {
-      position: relative; overflow: hidden;
-      border-radius: 22px; padding: 40px;
-      background:
-        linear-gradient(135deg, color-mix(in srgb, var(--accent) 12%, var(--bg-elev)), var(--bg-elev) 55%);
-      border: 1px solid color-mix(in srgb, var(--accent) 26%, var(--border));
-      box-shadow: var(--shadow-lg);
+    /* ---------- Highlight (agentic) ---------- */
+    .highlight {
+      background: var(--accent-wash);
+      border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--rule));
+      border-radius: 10px; padding: 22px 24px; margin-top: 4px;
     }
-    .feature::before {
-      content: ""; position: absolute; right: -80px; top: -80px; width: 320px; height: 320px;
-      background: radial-gradient(circle, color-mix(in srgb, var(--accent-2) 26%, transparent), transparent 70%);
-      pointer-events: none;
-    }
-    .feature .tag { display: inline-flex; align-items: center; gap: 8px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent-2); margin-bottom: 12px; }
-    .feature h2 { max-width: 22ch; }
-    .feature p { color: var(--text-soft); max-width: 62ch; margin-top: 14px; position: relative; }
-    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; position: relative; }
-    .chip { font-size: 0.83rem; font-weight: 600; padding: 7px 14px; border-radius: 999px; background: var(--bg-soft); border: 1px solid var(--border); color: var(--text-soft); }
+    .highlight p { margin-bottom: 0; }
+    .highlight .label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-ink); font-weight: 700; margin-bottom: 8px; }
 
-    /* ---------- Publications ---------- */
-    .pubs { display: flex; flex-direction: column; gap: 16px; }
-    .pub {
-      display: grid; grid-template-columns: 84px 1fr; gap: 20px;
-      background: var(--bg-elev); border: 1px solid var(--border); border-radius: 14px;
-      padding: 22px 24px; box-shadow: var(--shadow);
-      transition: border-color .15s ease, transform .15s ease;
-    }
-    .pub:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--accent) 34%, var(--border)); }
-    @media (max-width: 620px) { .pub { grid-template-columns: 1fr; gap: 8px; } }
-    .pub .year { font-size: 1.35rem; font-weight: 800; color: var(--accent); letter-spacing: -0.02em; }
-    .pub .venue { display: block; font-size: 0.76rem; color: var(--text-mute); font-weight: 600; margin-top: 2px; }
-    .pub h3 { font-size: 1.04rem; font-weight: 700; line-height: 1.4; letter-spacing: -0.01em; }
-    .pub .authors { font-size: 0.9rem; color: var(--text-soft); margin-top: 6px; }
-    .pub .authors b { color: var(--text); font-weight: 700; }
-    .pub .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-    .badge { font-size: 0.74rem; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
-    .badge.alt { background: var(--bg-soft); color: var(--text-soft); border: 1px solid var(--border); }
+    /* ---------- News ---------- */
+    .news { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+    .news li { display: grid; grid-template-columns: 62px 1fr; gap: 16px; }
+    .news .when { color: var(--accent); font-weight: 650; font-variant-numeric: tabular-nums; }
+    .news .what { color: var(--ink-soft); }
+    .news .what b { color: var(--ink); font-weight: 650; }
+
+    /* ---------- Publications (hanging-indent list) ---------- */
+    .pub-list { display: grid; gap: 22px; }
+    .pub { display: grid; grid-template-columns: 58px 1fr; gap: 20px; }
+    @media (max-width: 560px) { .pub { grid-template-columns: 1fr; gap: 3px; } }
+    .pub .yr { color: var(--accent); font-weight: 650; font-variant-numeric: tabular-nums; padding-top: 1px; }
+    .pub .title { font-weight: 650; color: var(--ink); }
+    .pub .auth { color: var(--ink-soft); font-size: 0.97rem; }
+    .pub .auth b { color: var(--ink); }
+    .pub .where { color: var(--ink-faint); font-style: italic; font-size: 0.95rem; }
+    .pub .tags { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: 0.74rem; letter-spacing: .02em; padding: 2px 9px; border-radius: 999px; background: var(--tag-bg); color: var(--tag-ink); }
 
     /* ---------- Projects ---------- */
-    .repos { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
-    .repo {
-      display: block; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 14px;
-      padding: 20px 22px; box-shadow: var(--shadow); transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-    }
-    .repo:hover { text-decoration: none; transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: color-mix(in srgb, var(--accent) 34%, var(--border)); }
-    .repo .rname { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--text); font-size: 1rem; }
-    .repo .rname svg { width: 17px; height: 17px; color: var(--text-mute); }
-    .repo p { color: var(--text-soft); font-size: 0.9rem; margin-top: 8px; }
-    .repo .lang { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--text-mute); margin-top: 12px; }
-    .repo .lang .d { width: 10px; height: 10px; border-radius: 50%; }
+    .proj-list { display: grid; gap: 16px; }
+    .proj { display: grid; grid-template-columns: 1fr; gap: 3px; }
+    .proj .head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+    .proj .pname { font-weight: 650; }
+    .proj .lang { font-size: 0.8rem; color: var(--ink-faint); }
+    .proj .about { color: var(--ink-soft); font-size: 0.97rem; }
 
     /* ---------- Footer ---------- */
-    footer { border-top: 1px solid var(--border); padding: 44px 0 60px; margin-top: 30px; }
-    .foot-inner { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: center; }
-    .foot-links { display: flex; flex-wrap: wrap; gap: 18px; }
-    .foot-links a { color: var(--text-soft); font-size: 0.9rem; font-weight: 500; }
-    .foot-note { color: var(--text-mute); font-size: 0.84rem; }
-
-    .icn { width: 18px; height: 18px; vertical-align: middle; }
+    footer { border-top: 1px solid var(--rule); padding: 26px 0 60px; color: var(--ink-faint); font-size: 0.88rem; }
+    footer a { color: var(--ink-faint); }
+    footer a:hover { color: var(--accent); }
   </style>
 </head>
 <body>
+  <div class="container">
 
-  <nav>
-    <div class="wrap nav-inner">
-      <div class="brand">Naseem <span>Machlovi</span></div>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#interests">Research</a>
-        <a href="#agentic">Agentic AI</a>
-        <a href="#publications">Publications</a>
-        <a href="#projects">Projects</a>
-      </div>
-    </div>
-  </nav>
-
-  <header class="hero">
-    <div class="hero-glow"></div>
-    <div class="wrap">
-      <div class="hero-inner">
-        <div>
-          <div class="eyebrow"><span class="dot"></span> Ph.D. Researcher · Fordham University · New York</div>
-          <h1>Naseem Machlovi</h1>
-          <p class="subtitle">Building <strong>trustworthy</strong> &amp; <strong>agentic AI</strong> — from LLM safety to healthcare.</p>
-          <p class="lede">
-            I'm a doctoral researcher in Computer &amp; Information Science whose work centers on the
-            trustworthiness of modern AI: making large language models and autonomous agents
-            <em>safe, fair, transparent, and robust</em>. My research spans AI safety &amp; moderation,
-            agentic AI for healthcare, and interpretable deep learning for medical imaging.
-          </p>
-          <div class="cta-row">
-            <a class="btn primary" href="https://scholar.google.com/citations?hl=en&user=mmTZ3kQAAAAJ" target="_blank" rel="noopener">
+    <header>
+      <div class="masthead">
+        <!-- To use a real photo, save it as profile.jpg next to this file and replace
+             this <div> with: <img class="portrait" src="profile.jpg" alt="Naseem Machlovi"> -->
+        <div class="portrait serif" aria-hidden="true">NM</div>
+        <div class="bio">
+          <h1 class="serif">Naseem Machlovi</h1>
+          <p class="role">PhD researcher, Computer &amp; Information Science</p>
+          <p class="role"><span class="place">Fordham University, New York</span></p>
+          <p class="scholar-line">33 citations, h-index 3 (Google Scholar)</p>
+          <nav class="links">
+            <a class="cv" href="cv.pdf">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M14 2v6h6"/></svg>
+              CV
+            </a>
+            <a href="mailto:naseem.machlovi@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m3 6 9 6 9-6"/></svg>
+              Email
+            </a>
+            <a href="https://scholar.google.com/citations?hl=en&user=mmTZ3kQAAAAJ" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 1 8l11 6 9-4.9V17h2V8L12 2zM5 13.2v3.3c0 1.7 3.1 3.5 7 3.5s7-1.8 7-3.5v-3.3l-7 3.8-7-3.8z"/></svg>
               Google Scholar
             </a>
-            <a class="btn" href="https://github.com/machlovi" target="_blank" rel="noopener">
+            <a href="https://github.com/machlovi" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1.7 1.4 2.6 1.9.3-.7.4-1.1.7-1.4-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.2c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
               GitHub
             </a>
-            <a class="btn" href="https://www.linkedin.com/in/naseem-machlovi/" target="_blank" rel="noopener">
+            <a href="https://www.linkedin.com/in/naseem-machlovi/" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8h4V24h-4V8zM8 8h3.8v2.2h.05c.53-1 1.83-2.2 3.77-2.2 4 0 4.75 2.6 4.75 6V24h-4v-7c0-1.7 0-3.9-2.4-3.9s-2.7 1.8-2.7 3.7V24H8V8z"/></svg>
               LinkedIn
             </a>
-            <a class="btn" href="https://dblp.org/pid/341/3732.html" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm8 1.5V8h4.5L14 3.5zM8 12h8v1.5H8V12zm0 3.5h8V17H8v-1.5z"/></svg>
+            <a href="https://dblp.org/pid/341/3732.html" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm8 1.5V8h4.5L14 3.5z"/></svg>
               dblp
+            </a>
+          </nav>
+          <div style="margin-top:18px;">
+            <a class="btn" href="https://www.linkedin.com/in/naseem-machlovi/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8h4V24h-4V8zM8 8h3.8v2.2h.05c.53-1 1.83-2.2 3.77-2.2 4 0 4.75 2.6 4.75 6V24h-4v-7c0-1.7 0-3.9-2.4-3.9s-2.7 1.8-2.7 3.7V24H8V8z"/></svg>
+              View full experience on LinkedIn
             </a>
           </div>
         </div>
-        <div class="avatar" aria-hidden="true">NM</div>
       </div>
+    </header>
 
-      <div class="metrics wrap" style="padding:0;">
-        <div class="metric"><div class="num">33<span class="plus">+</span></div><div class="lbl">Citations</div></div>
-        <div class="metric"><div class="num">3</div><div class="lbl">h-index</div></div>
-        <div class="metric"><div class="num">10<span class="plus">+</span></div><div class="lbl">Publications</div></div>
-        <div class="metric"><div class="num">4</div><div class="lbl">Research areas</div></div>
-      </div>
-    </div>
-  </header>
+    <main>
+      <section>
+        <h2>About</h2>
+        <p class="lead">
+          I study how to make modern AI systems trustworthy. As large language models and autonomous
+          agents take on more responsibility, my work asks a practical question: how do we keep them
+          safe, fair, and transparent enough for people to rely on?
+        </p>
+        <p>
+          I finished my MS in Data Science at Fordham University, where my thesis looked at the
+          interpretability and explainability of large language models. I am now a PhD researcher in the
+          Department of Computer &amp; Information Science. Day to day, my research moves between three
+          areas: evaluating and hardening LLM moderation and safety, building agentic AI for healthcare,
+          and designing interpretable deep learning models for medical imaging.
+        </p>
+      </section>
 
-  <main>
-    <!-- About -->
-    <section id="about">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="kicker">About</div>
-          <h2>Trustworthy AI, from principle to deployment</h2>
+      <section>
+        <h2>Agentic AI (current focus)</h2>
+        <div class="highlight">
+          <div class="label">What I am working on now</div>
           <p>
-            I earned my M.S. in Data Science at Fordham University — with a thesis on the
-            <strong>interpretability and explainability of large language models</strong> — and am now
-            pursuing my Ph.D. in the Department of Computer &amp; Information Science. My guiding question is
-            simple but urgent: <em>as AI systems become more autonomous, how do we keep them safe,
-            accountable, and worthy of human trust?</em>
-          </p>
-          <p style="margin-top:14px;">
-            My work moves across three fronts — evaluating and hardening <strong>LLM moderation and safety</strong>,
-            designing <strong>agentic AI systems for healthcare</strong>, and building
-            <strong>interpretable deep-learning models for medical imaging</strong> — always with transparency and
-            human-first design at the center.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Research interests -->
-    <section id="interests" style="padding-top:20px;">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="kicker">Research Focus</div>
-          <h2>What I work on</h2>
-          <p>Four intersecting threads, unified by a commitment to trustworthy and transparent AI.</p>
-        </div>
-        <div class="cards">
-          <div class="card">
-            <div class="ico">🛡️</div>
-            <h3>AI Safety &amp; LLM Moderation</h3>
-            <p>Benchmarks and moderation models that evaluate the safety, fairness, and adversarial robustness of LLMs — advocating a human-first approach.</p>
-          </div>
-          <div class="card">
-            <div class="ico">🤖</div>
-            <h3>Agentic AI for Healthcare</h3>
-            <p>Autonomous, tool-using LLM agents that can reason and act reliably in high-stakes clinical and medical settings.</p>
-          </div>
-          <div class="card">
-            <div class="ico">🔍</div>
-            <h3>Interpretability &amp; Explainability</h3>
-            <p>Making model decisions transparent — from contextual representations over large knowledge bases to explainable LLM behavior.</p>
-          </div>
-          <div class="card">
-            <div class="ico">🧬</div>
-            <h3>Deep Learning for Medical Imaging</h3>
-            <p>3D segmentation (nnU-Net, SAM2) and radiomics for knee &amp; hip MRI — from osteoarthritis progression to femoroacetabular impingement.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured: Agentic AI -->
-    <section id="agentic">
-      <div class="wrap">
-        <div class="feature">
-          <div class="tag">✦ Current research spotlight</div>
-          <h2>Agentic AI you can actually trust</h2>
-          <p>
-            My most recent work sits at the frontier of <strong>agentic AI</strong> — LLM-driven systems that
-            plan, use tools, and act autonomously. The hard part isn't capability; it's <em>accountability</em>.
-            Through projects like <a href="https://github.com/machlovi/RA-Gent" target="_blank" rel="noopener">RA-Gent</a>
+            My most recent work sits with agentic AI, the LLM driven systems that plan, call tools, and
+            act on their own. The hard part is not raw capability; it is accountability. Through projects
+            like <a href="https://github.com/machlovi/RA-Gent" target="_blank" rel="noopener">RA&#8209;Gent</a>
             and the <a href="https://github.com/machlovi/GuardEval" target="_blank" rel="noopener">GuardEval</a>
-            benchmark, I study how to evaluate and guardrail autonomous agents so that safety, fairness, and
-            robustness scale alongside their autonomy — with a special focus on healthcare, where the cost of an
-            unreliable agent is highest.
+            benchmark, I study how to evaluate and guardrail autonomous agents so that safety, fairness,
+            and robustness keep pace with their autonomy. Healthcare is my main testing ground, because
+            that is where an unreliable agent does the most harm.
           </p>
-          <div class="chips">
-            <span class="chip">LLM Agents</span>
-            <span class="chip">Tool Use &amp; Planning</span>
-            <span class="chip">Guardrails &amp; Evaluation</span>
-            <span class="chip">Agentic AI in Healthcare</span>
-            <span class="chip">Adversarial Robustness</span>
-            <span class="chip">Human-in-the-loop</span>
+        </div>
+      </section>
+
+      <section>
+        <h2>Research interests</h2>
+        <div class="interests">
+          <div class="interest">
+            <div class="name">AI safety &amp; LLM moderation</div>
+            <div class="desc">Benchmarks and moderation models that test the safety, fairness, and adversarial robustness of LLMs, with a human first approach.</div>
+          </div>
+          <div class="interest">
+            <div class="name">Agentic AI for healthcare</div>
+            <div class="desc">Autonomous, tool using LLM agents that reason and act reliably in clinical and medical settings.</div>
+          </div>
+          <div class="interest">
+            <div class="name">Interpretability &amp; explainability</div>
+            <div class="desc">Making model decisions legible, from contextual representations over large knowledge bases to explainable LLM behavior.</div>
+          </div>
+          <div class="interest">
+            <div class="name">Deep learning for medical imaging</div>
+            <div class="desc">3D segmentation (nnU-Net, SAM2) and radiomics for knee and hip MRI, including osteoarthritis progression and femoroacetabular impingement.</div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Publications -->
-    <section id="publications">
-      <div class="wrap">
+      <section>
         <div class="section-head">
-          <div class="kicker">Selected Publications</div>
-          <h2>Peer-reviewed research</h2>
-          <p>A selection of recent and impactful work. See <a href="https://scholar.google.com/citations?hl=en&user=mmTZ3kQAAAAJ" target="_blank" rel="noopener">Google Scholar</a> for the complete list.</p>
-        </div>
-
-        <div class="pubs">
-
-          <div class="pub">
-            <div><div class="year">2026</div><span class="venue">arXiv · CoRR</span></div>
-            <div>
-              <h3>GuardEval: A Multi-Perspective Benchmark for Evaluating Safety, Fairness, and Robustness in LLM Moderators</h3>
-              <div class="authors"><b>N. Machlovi</b>, M. Saleki, R. Amin, M. Rahouti, S. Al-Maliki, J. Qadir, M. M. Abdallah, A. Al-Fuqaha</div>
-              <div class="meta"><span class="badge">AI Safety</span><span class="badge alt">LLM Evaluation</span><span class="badge alt">Benchmark</span></div>
-            </div>
-          </div>
-
-          <div class="pub">
-            <div><div class="year">2026</div><span class="venue">ACM Trans. on Social Computing</span></div>
-            <div>
-              <h3>A Multi-Perspective Benchmark Dataset and Moderation Model for LLM Safety Evaluation with Adversarial Robustness Analysis</h3>
-              <div class="authors"><b>N. Machlovi</b>, M. Saleki, R. Amin, M. Rahouti, S. Al-Maliki, J. Qadir, M. Abdallah, et al.</div>
-              <div class="meta"><span class="badge">AI Safety</span><span class="badge alt">Adversarial Robustness</span><span class="badge alt">Journal</span></div>
-            </div>
-          </div>
-
-          <div class="pub">
-            <div><div class="year">2025</div><span class="venue">HCI International</span></div>
-            <div>
-              <h3>Towards Safer AI Moderation: Evaluating LLM Moderators Through a Unified Benchmark Dataset and Advocating a Human-First Approach</h3>
-              <div class="authors"><b>N. Machlovi</b>, M. Saleki, I. Ababio, M. R. Amin</div>
-              <div class="meta"><span class="badge">LLM Moderation</span><span class="badge alt">Human-First AI</span><span class="badge alt">7 citations</span></div>
-            </div>
-          </div>
-
-          <div class="pub">
-            <div><div class="year">2023</div><span class="venue">IEEE Big Data</span></div>
-            <div>
-              <h3>Distributed Quantum Learning with co-Management in a Multi-tenant Quantum System</h3>
-              <div class="authors">A. D'Onofrio Jr., A. Hossain, L. Santana, S. A. Stein, J. Liu, A. Li, Y. Mao, <b>N. Machlovi</b></div>
-              <div class="meta"><span class="badge">Quantum ML</span><span class="badge alt">Distributed Systems</span><span class="badge alt">18 citations</span></div>
-            </div>
-          </div>
-
-          <div class="pub">
-            <div><div class="year">2023</div><span class="venue">M.S. Thesis</span></div>
-            <div>
-              <h3>SPOCK: Subjective Projection for Optimizing Deep Neural Classification Models Based on Contextual Representation from Large Knowledgebase</h3>
-              <div class="authors"><b>N. Machlovi</b> — Fordham University (Data Science)</div>
-              <div class="meta"><span class="badge">Interpretability</span><span class="badge alt">Representation Learning</span></div>
-            </div>
-          </div>
-
-          <div class="pub">
-            <div><div class="year">2026</div><span class="venue">Osteoarthritis Imaging</span></div>
-            <div>
-              <h3>Comparative Analysis of 3D CNN, nnU-Net, and SAM2-based Models for Knee MRI Segmentation</h3>
-              <div class="authors">D. Arsoy, C. M. Deniz, O. Cigdem, <b>N. Machlovi</b></div>
-              <div class="meta"><span class="badge">Medical Imaging</span><span class="badge alt">3D Segmentation</span></div>
-            </div>
-          </div>
-
-          <div class="pub">
-            <div><div class="year">2022</div><span class="venue">IEEE IPCCC</span></div>
-            <div>
-              <h3>Performance Evaluation of Resource Management Schemes for Cloud Native Platforms with Computing Containers</h3>
-              <div class="authors">Y. Fu, Y. Mao, J. Wang, L. Cheng, Q. Liu, <b>N. Machlovi</b></div>
-              <div class="meta"><span class="badge">Cloud Systems</span><span class="badge alt">Containers</span><span class="badge alt">7 citations</span></div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="kicker">Open Source</div>
-          <h2>Code &amp; projects</h2>
-          <p>Selected repositories from my <a href="https://github.com/machlovi" target="_blank" rel="noopener">GitHub</a>.</p>
-        </div>
-        <div class="repos">
-          <a class="repo" href="https://github.com/machlovi/RA-Gent" target="_blank" rel="noopener">
-            <div class="rname"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1.7 1.4 2.6 1.9.3-.7.4-1.1.7-1.4-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.2c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg> RA-Gent</div>
-            <p>An agentic AI system exploring autonomous, tool-using LLM agents.</p>
-            <span class="lang"><span class="d" style="background:#3572A5"></span> Python</span>
-          </a>
-          <a class="repo" href="https://github.com/machlovi/GuardEval" target="_blank" rel="noopener">
-            <div class="rname"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1.7 1.4 2.6 1.9.3-.7.4-1.1.7-1.4-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.2c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg> GuardEval</div>
-            <p>Benchmark for evaluating safety, fairness &amp; robustness of LLM moderators.</p>
-            <span class="lang"><span class="d" style="background:#DA5B0B"></span> Jupyter Notebook</span>
-          </a>
-          <a class="repo" href="https://github.com/machlovi/Transfromers" target="_blank" rel="noopener">
-            <div class="rname"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1.7 1.4 2.6 1.9.3-.7.4-1.1.7-1.4-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.2c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg> Transformers from Scratch</div>
-            <p>Building the Transformer architecture from the ground up.</p>
-            <span class="lang"><span class="d" style="background:#DA5B0B"></span> Jupyter Notebook</span>
-          </a>
-          <a class="repo" href="https://github.com/machlovi/MedSegX" target="_blank" rel="noopener">
-            <div class="rname"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1.7 1.4 2.6 1.9.3-.7.4-1.1.7-1.4-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 5.3 18 5.6 18 5.6c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.2c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg> MedSegX</div>
-            <p>Medical image segmentation research &amp; experiments.</p>
-            <span class="lang"><span class="d" style="background:#3572A5"></span> Python</span>
+          <h2>Experience</h2>
+          <a class="btn ghost" href="https://www.linkedin.com/in/naseem-machlovi/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8h4V24h-4V8zM8 8h3.8v2.2h.05c.53-1 1.83-2.2 3.77-2.2 4 0 4.75 2.6 4.75 6V24h-4v-7c0-1.7 0-3.9-2.4-3.9s-2.7 1.8-2.7 3.7V24H8V8z"/></svg>
+            LinkedIn
           </a>
         </div>
-      </div>
-    </section>
-  </main>
+        <div class="exp-list">
+          <div class="exp">
+            <div class="span">2024 &ndash; present</div>
+            <div>
+              <p class="role">Doctoral Researcher</p>
+              <div class="org">Fordham University, Department of Computer &amp; Information Science</div>
+              <div class="about">Research on trustworthy machine learning, AI safety, and agentic AI, with a focus on LLM moderation and agents for healthcare.</div>
+            </div>
+          </div>
+          <div class="exp">
+            <div class="span">2021 &ndash; 2023</div>
+            <div>
+              <p class="role">Graduate Researcher</p>
+              <div class="org">Fordham University, MS in Data Science</div>
+              <div class="about">Thesis on interpretability and explainability of LLMs (SPOCK). Systems research on distributed quantum learning and cloud native resource management (IEEE Big Data, IPCCC).</div>
+            </div>
+          </div>
+          <div class="exp">
+            <div class="span">2024 &ndash; present</div>
+            <div>
+              <p class="role">Research Collaborator, Medical Imaging</p>
+              <div class="org">NYU Langone Health, Department of Radiology</div>
+              <div class="about">Deep learning for knee and hip MRI segmentation (nnU-Net, SAM2) and osteoarthritis radiomics.</div>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top:16px; color:var(--ink-faint); font-size:0.9rem;">
+          Roles and dates above are provisional. Send exact titles and dates to finalize.
+        </p>
+      </section>
 
-  <footer>
-    <div class="wrap foot-inner">
-      <div>
-        <div class="brand" style="font-size:1.1rem;">Naseem <span style="color:var(--accent)">Machlovi</span></div>
-        <div class="foot-note" style="margin-top:6px;">Ph.D. Researcher · Computer &amp; Information Science · Fordham University, New York</div>
-      </div>
-      <div class="foot-links">
-        <a href="https://scholar.google.com/citations?hl=en&user=mmTZ3kQAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
-        <a href="https://github.com/machlovi" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/naseem-machlovi/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://dblp.org/pid/341/3732.html" target="_blank" rel="noopener">dblp</a>
-      </div>
-    </div>
-    <div class="wrap foot-note" style="margin-top:24px;">© <span id="yr">2026</span> Naseem Machlovi · Built with care. Hosted on GitHub Pages.</div>
-  </footer>
+      <section>
+        <h2>News</h2>
+        <ul class="news">
+          <li>
+            <span class="when">2026</span>
+            <span class="what"><b>GuardEval</b>, our multi perspective benchmark for evaluating safety, fairness, and robustness in LLM moderators, is out as a preprint.</span>
+          </li>
+          <li>
+            <span class="when">2026</span>
+            <span class="what">Our work on LLM safety evaluation with adversarial robustness analysis is appearing in <b>ACM Transactions on Social Computing</b>.</span>
+          </li>
+          <li>
+            <span class="when">2025</span>
+            <span class="what">Presented our human first approach to LLM moderation at <b>HCI International</b>.</span>
+          </li>
+          <li>
+            <span class="when">2023</span>
+            <span class="what">Distributed quantum learning paper published at <b>IEEE Big Data</b>.</span>
+          </li>
+        </ul>
+      </section>
 
-  <script>
-    // keep footer year current without hardcoding at build; harmless if JS disabled
-    try { document.getElementById('yr').textContent = new Date().getFullYear(); } catch (e) {}
-  </script>
+      <section>
+        <h2>Selected publications</h2>
+        <div class="pub-list">
+
+          <div class="pub">
+            <div class="yr">2026</div>
+            <div>
+              <div class="title">GuardEval: A Multi-Perspective Benchmark for Evaluating Safety, Fairness, and Robustness in LLM Moderators</div>
+              <div class="auth"><b>N. Machlovi</b>, M. Saleki, R. Amin, M. Rahouti, S. Al-Maliki, J. Qadir, M. M. Abdallah, A. Al-Fuqaha</div>
+              <div class="where">arXiv preprint</div>
+              <div class="tags"><span class="tag">AI safety</span><span class="tag">LLM evaluation</span><span class="tag">benchmark</span></div>
+            </div>
+          </div>
+
+          <div class="pub">
+            <div class="yr">2026</div>
+            <div>
+              <div class="title">A Multi-Perspective Benchmark Dataset and Moderation Model for LLM Safety Evaluation with Adversarial Robustness Analysis</div>
+              <div class="auth"><b>N. Machlovi</b>, M. Saleki, R. Amin, M. Rahouti, S. Al-Maliki, J. Qadir, M. Abdallah, et al.</div>
+              <div class="where">ACM Transactions on Social Computing</div>
+              <div class="tags"><span class="tag">AI safety</span><span class="tag">adversarial robustness</span></div>
+            </div>
+          </div>
+
+          <div class="pub">
+            <div class="yr">2025</div>
+            <div>
+              <div class="title">Towards Safer AI Moderation: Evaluating LLM Moderators Through a Unified Benchmark Dataset and Advocating a Human-First Approach</div>
+              <div class="auth"><b>N. Machlovi</b>, M. Saleki, I. Ababio, M. R. Amin</div>
+              <div class="where">HCI International</div>
+              <div class="tags"><span class="tag">LLM moderation</span><span class="tag">human first AI</span><span class="tag">7 citations</span></div>
+            </div>
+          </div>
+
+          <div class="pub">
+            <div class="yr">2023</div>
+            <div>
+              <div class="title">Distributed Quantum Learning with co-Management in a Multi-tenant Quantum System</div>
+              <div class="auth">A. D'Onofrio Jr., A. Hossain, L. Santana, S. A. Stein, J. Liu, A. Li, Y. Mao, <b>N. Machlovi</b></div>
+              <div class="where">IEEE International Conference on Big Data</div>
+              <div class="tags"><span class="tag">quantum ML</span><span class="tag">distributed systems</span><span class="tag">18 citations</span></div>
+            </div>
+          </div>
+
+          <div class="pub">
+            <div class="yr">2023</div>
+            <div>
+              <div class="title">SPOCK: Subjective Projection for Optimizing Deep Neural Classification Models Based on Contextual Representation from Large Knowledgebase</div>
+              <div class="auth"><b>N. Machlovi</b>, MS thesis, Fordham University</div>
+              <div class="where">Data Science thesis</div>
+              <div class="tags"><span class="tag">interpretability</span><span class="tag">representation learning</span></div>
+            </div>
+          </div>
+
+          <div class="pub">
+            <div class="yr">2026</div>
+            <div>
+              <div class="title">Comparative Analysis of 3D CNN, nnU-Net, and SAM2-based Models for Knee MRI Segmentation</div>
+              <div class="auth">D. Arsoy, C. M. Deniz, O. Cigdem, <b>N. Machlovi</b></div>
+              <div class="where">Osteoarthritis Imaging</div>
+              <div class="tags"><span class="tag">medical imaging</span><span class="tag">3D segmentation</span></div>
+            </div>
+          </div>
+
+          <div class="pub">
+            <div class="yr">2022</div>
+            <div>
+              <div class="title">Performance Evaluation of Resource Management Schemes for Cloud Native Platforms with Computing Containers</div>
+              <div class="auth">Y. Fu, Y. Mao, J. Wang, L. Cheng, Q. Liu, <b>N. Machlovi</b></div>
+              <div class="where">IEEE IPCCC</div>
+              <div class="tags"><span class="tag">cloud systems</span><span class="tag">containers</span><span class="tag">7 citations</span></div>
+            </div>
+          </div>
+
+        </div>
+        <p style="margin-top:20px; color:var(--ink-faint); font-size:0.92rem;">
+          Full list on <a href="https://scholar.google.com/citations?hl=en&user=mmTZ3kQAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2>Projects</h2>
+        <div class="proj-list">
+          <div class="proj">
+            <div class="head"><a class="pname" href="https://github.com/machlovi/RA-Gent" target="_blank" rel="noopener">RA-Gent</a><span class="lang">Python</span></div>
+            <div class="about">An agentic AI system for building autonomous, tool using LLM agents.</div>
+          </div>
+          <div class="proj">
+            <div class="head"><a class="pname" href="https://github.com/machlovi/GuardEval" target="_blank" rel="noopener">GuardEval</a><span class="lang">Jupyter Notebook</span></div>
+            <div class="about">Benchmark for evaluating the safety, fairness, and robustness of LLM moderators.</div>
+          </div>
+          <div class="proj">
+            <div class="head"><a class="pname" href="https://github.com/machlovi/MedSegX" target="_blank" rel="noopener">MedSegX</a><span class="lang">Python</span></div>
+            <div class="about">Medical image segmentation research and experiments.</div>
+          </div>
+          <div class="proj">
+            <div class="head"><a class="pname" href="https://github.com/machlovi/Transfromers" target="_blank" rel="noopener">Transformers from scratch</a><span class="lang">Jupyter Notebook</span></div>
+            <div class="about">Implementing the Transformer architecture from the ground up.</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p style="margin:0;">
+        Naseem Machlovi, Fordham University, New York.
+        <a href="https://github.com/machlovi" target="_blank" rel="noopener">GitHub</a>,
+        <a href="https://scholar.google.com/citations?hl=en&user=mmTZ3kQAAAAJ" target="_blank" rel="noopener">Scholar</a>,
+        <a href="https://www.linkedin.com/in/naseem-machlovi/" target="_blank" rel="noopener">LinkedIn</a>.
+      </p>
+    </footer>
+
+  </div>
 </body>
 </html>

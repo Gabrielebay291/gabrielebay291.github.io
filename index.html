@@ -62,8 +62,14 @@
     a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .12s ease, color .12s ease; }
     a:hover { color: var(--accent-ink); border-bottom-color: currentColor; }
 
+    /* thin accent hairline at the very top of the page */
+    body::before {
+      content: ""; display: block; height: 3px;
+      background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 35%, var(--paper)) 70%, transparent);
+    }
+
     /* ---------- Header / bio ---------- */
-    header { padding: 58px 0 30px; }
+    header { padding: 52px 0 30px; }
     .masthead { display: flex; gap: 34px; align-items: flex-start; }
     @media (max-width: 620px) { .masthead { flex-direction: column; gap: 22px; align-items: center; text-align: center; } }
 
@@ -122,6 +128,11 @@
     h2 {
       font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.14em;
       color: var(--accent); font-weight: 700; margin: 0 0 18px;
+      display: flex; align-items: center; gap: 11px;
+    }
+    h2::before {
+      content: ""; flex: 0 0 auto; width: 20px; height: 2px;
+      background: var(--accent); border-radius: 2px; opacity: .85;
     }
     p { margin: 0 0 14px; }
     p:last-child { margin-bottom: 0; }
@@ -170,6 +181,18 @@
     .proj .lang { font-size: 0.8rem; color: var(--ink-faint); }
     .proj .about { color: var(--ink-soft); font-size: 0.97rem; }
 
+    /* ---------- About me / facts ---------- */
+    .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+    .fact {
+      background: var(--paper-card); border: 1px solid var(--rule);
+      border-left: 3px solid var(--accent); border-radius: 8px;
+      padding: 16px 18px; transition: transform .14s ease, box-shadow .14s ease;
+    }
+    .fact:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(80,50,30,0.10); }
+    .fact p { margin: 0; color: var(--ink-soft); font-size: 0.97rem; }
+    .fact .lede-in { color: var(--ink); font-weight: 650; }
+    @media (prefers-color-scheme: dark) { .fact:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.4); } }
+
     /* ---------- Footer ---------- */
     footer { border-top: 1px solid var(--rule); padding: 26px 0 60px; color: var(--ink-faint); font-size: 0.88rem; }
     footer a { color: var(--ink-faint); }
@@ -188,7 +211,6 @@
           <h1 class="serif">Naseem Machlovi</h1>
           <p class="role">PhD researcher, Computer &amp; Information Science</p>
           <p class="role"><span class="place">Fordham University, New York</span></p>
-          <p class="scholar-line">33 citations, h-index 3 (Google Scholar)</p>
           <nav class="links">
             <a class="cv" href="cv.pdf">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M14 2v6h6"/></svg>
@@ -215,12 +237,6 @@
               dblp
             </a>
           </nav>
-          <div style="margin-top:18px;">
-            <a class="btn" href="https://www.linkedin.com/in/naseem-machlovi/" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8h4V24h-4V8zM8 8h3.8v2.2h.05c.53-1 1.83-2.2 3.77-2.2 4 0 4.75 2.6 4.75 6V24h-4v-7c0-1.7 0-3.9-2.4-3.9s-2.7 1.8-2.7 3.7V24H8V8z"/></svg>
-              View full experience on LinkedIn
-            </a>
-          </div>
         </div>
       </div>
     </header>
@@ -371,7 +387,7 @@
               <div class="title">Towards Safer AI Moderation: Evaluating LLM Moderators Through a Unified Benchmark Dataset and Advocating a Human-First Approach</div>
               <div class="auth"><b>N. Machlovi</b>, M. Saleki, I. Ababio, M. R. Amin</div>
               <div class="where">HCI International</div>
-              <div class="tags"><span class="tag">LLM moderation</span><span class="tag">human first AI</span><span class="tag">7 citations</span></div>
+              <div class="tags"><span class="tag">LLM moderation</span><span class="tag">human first AI</span></div>
             </div>
           </div>
 
@@ -381,7 +397,7 @@
               <div class="title">Distributed Quantum Learning with co-Management in a Multi-tenant Quantum System</div>
               <div class="auth">A. D'Onofrio Jr., A. Hossain, L. Santana, S. A. Stein, J. Liu, A. Li, Y. Mao, <b>N. Machlovi</b></div>
               <div class="where">IEEE International Conference on Big Data</div>
-              <div class="tags"><span class="tag">quantum ML</span><span class="tag">distributed systems</span><span class="tag">18 citations</span></div>
+              <div class="tags"><span class="tag">quantum ML</span><span class="tag">distributed systems</span></div>
             </div>
           </div>
 
@@ -411,7 +427,7 @@
               <div class="title">Performance Evaluation of Resource Management Schemes for Cloud Native Platforms with Computing Containers</div>
               <div class="auth">Y. Fu, Y. Mao, J. Wang, L. Cheng, Q. Liu, <b>N. Machlovi</b></div>
               <div class="where">IEEE IPCCC</div>
-              <div class="tags"><span class="tag">cloud systems</span><span class="tag">containers</span><span class="tag">7 citations</span></div>
+              <div class="tags"><span class="tag">cloud systems</span><span class="tag">containers</span></div>
             </div>
           </div>
 
@@ -441,6 +457,23 @@
             <div class="about">Implementing the Transformer architecture from the ground up.</div>
           </div>
         </div>
+      </section>
+      <section>
+        <h2>A few things about me</h2>
+        <div class="facts">
+          <div class="fact">
+            <p><span class="lede-in">I collect fields, not just papers.</span> My work has wandered from quantum computing to cloud systems to LLM safety to knee MRIs. I like problems that refuse to sit in one discipline.</p>
+          </div>
+          <div class="fact">
+            <p><span class="lede-in">I built a Transformer from scratch,</span> not because I had to, but because I wanted to feel exactly how attention works before trusting it.</p>
+          </div>
+          <div class="fact">
+            <p><span class="lede-in">Honest AI is my favorite kind.</span> The models I admire most are the ones that know what they do not know, and a lot of my research is about getting them there.</p>
+          </div>
+        </div>
+        <p style="margin-top:16px; color:var(--ink-faint); font-size:0.9rem;">
+          Want your own fun facts here instead? Send me a couple and I will swap them in.
+        </p>
       </section>
     </main>
 
